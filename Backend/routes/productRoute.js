@@ -4,6 +4,7 @@ module.exports = (app) => {
 	let router = express.Router();
 
 	// Login API Routes
+	router.get("/list",product.productList)
 	router.get("/get", product.getProduct );
 	router.post("/create",product.createProduct)
 
