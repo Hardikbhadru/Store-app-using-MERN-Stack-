@@ -5,7 +5,7 @@ module.exports = (app) => {
 
 	// Login API Routes
 	router.get("/list",product.productList)
-	router.get("/get", product.getProduct );
+	router.get("/get/:id", product.getProduct );
 	router.post("/create",product.createProduct)
 
 	app.use('/api/product', router);

@@ -3,7 +3,9 @@ const customError = require("../../helpers/customError")
 
 exports.getProduct = async (req, res) => {
     const { product_id } = req.query;
-
+    const productResponse = await db.user.findOne({ where: { product_id: product_id } })
+    if (!productResponse) throw new customError(403, "User not found");
+    else return res.status(200).json({ data: productResponse.dataValues })
 }
 
 exports.createProduct = async (req, res) => {
